@@ -38,13 +38,25 @@ PCA方法鲁棒性不佳是由于矩阵的噪声并不完全是高斯噪声。�
 <img src="https://github.com/liangjiubujiu/light_field_low_rank_optimization/blob/master/images/6.jpg" width="500" />
 
 ### 2.	RASL 用于子图像批量对齐
-<img src="https://github.com/liangjiubujiu/light_field_low_rank_optimization/blob/master/images/8.jpg" width="800" />
- <img src="https://github.com/liangjiubujiu/light_field_low_rank_optimization/blob/master/images/9.jpg" width="500" />
+<img src="https://github.com/liangjiubujiu/light_field_low_rank_optimization/blob/master/images/7.jpg" width="800" />
+
+算法伪码：
+
+ <img src="https://github.com/liangjiubujiu/light_field_low_rank_optimization/blob/master/images/8.jpg" width="500" />
  
 使用python3 运行cvv\rasl_LF\main中的budahan.py即可观察到下图。经过2次迭代，得到对齐及矩阵分解的结果
 
-<img src="https://github.com/liangjiubujiu/light_field_low_rank_optimization/blob/master/images/10.jpg" width="500" />
+<img src="https://github.com/liangjiubujiu/light_field_low_rank_optimization/blob/master/images/9.jpg" width="500" />
 
-`思考：即使可以把一个很大的矩阵分解成两个长条，但是SVD不够好，因为得到的分解结果矩阵不具有稀疏的特性。为进一步得到更为稀疏的分解形式，这里将对齐后的图片矩阵使用CUR分解。CUR分解，适合大数据；有编码、计算优势，不方便呈现。`
+使用matlab经过9外层迭代和418次内层循环，得到15张子图像的秩收敛到r=8
+
+<img src="https://github.com/liangjiubujiu/light_field_low_rank_optimization/blob/master/images/9.jpg" width="500" />
+SVD低秩矩阵分解改进`即使可以把一个很大的矩阵分解成两个长条，但是SVD不够好，因为得到的分解结果矩阵不具有稀疏的特性。为进一步得到更为稀疏的分解形式，这里将对齐后的图片矩阵使用CUR分解。CUR分解，适合大数据；有编码、计算优势，不方便呈现。` 
+
+<img src="https://github.com/liangjiubujiu/light_field_low_rank_optimization/blob/master/images/12.jpg" width="500" />
+
+但无法用理论或者实验证实CUR的性能优于SVD。
 
 <img src="https://github.com/liangjiubujiu/light_field_low_rank_optimization/blob/master/images/11.jpg" width="500" />
+
+运行`cvv\CUR路径中的CUR.py`，可观察到分解效果，其中cvv\CUR文件1.xlsx是对齐后的图片拉成列向量后的矩阵。
