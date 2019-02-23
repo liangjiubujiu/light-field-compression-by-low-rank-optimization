@@ -38,11 +38,12 @@ PCA方法鲁棒性不佳是由于矩阵的噪声并不完全是高斯噪声。�
 <img src="https://github.com/liangjiubujiu/light_field_low_rank_optimization/blob/master/images/6.jpg" width="500" />
 
 ### 2.	RASL 用于子图像批量对齐
-<img src="https://github.com/liangjiubujiu/light_field_low_rank_optimization/blob/master/images/7.jpg" width="800" />
+
+<img src="https://github.com/liangjiubujiu/light_field_low_rank_optimization/blob/master/images/7.jpg" width="400" />
 
 算法伪码：
 
- <img src="https://github.com/liangjiubujiu/light_field_low_rank_optimization/blob/master/images/8.jpg" width="500" />
+ <img src="https://github.com/liangjiubujiu/light_field_low_rank_optimization/blob/master/images/8.jpg" width="800" />
  
 使用python3 运行cvv\rasl_LF\main中的budahan.py即可观察到下图。经过2次迭代，得到对齐及矩阵分解的结果
 
